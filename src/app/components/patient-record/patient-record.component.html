@@ -1,0 +1,74 @@
+<div><h2> Add Patient Details </h2></div>
+<div class="addPatientDiv">
+<form [formGroup]="addPatientForm" (ngSubmit)="onSubmit()">
+  <table class="addPatientTable">
+    <tr>
+      <td>
+        <mat-form-field>
+          <label>Enter Your Name</label>
+          <input matInput  placeholder="" value="" formControlName="name">
+          <div
+          *ngIf="submitted && fieldControls.name.errors"
+          class="invalid-feedback"
+        >
+          <div
+            class="login-form__error"
+            *ngIf="fieldControls.name.errors.required"
+          >
+            User Name is required
+          </div>
+          </div>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <label>Enter Your Age</label>
+          <input matInput placeholder="" formControlName="age">
+          <div
+          *ngIf="submitted && fieldControls.age.errors"
+          class="invalid-feedback"
+        >
+          <div
+            class="login-form__error"
+            *ngIf="fieldControls.age.errors.required"
+          >
+           Age is required
+          </div>
+          </div>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <label>Contact no</label>
+          <input matInput placeholder="" formControlName="contactNo">
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <label>Tests to be performed</label>
+          <mat-select placeholder="" multiple formControlName="patientTests">
+            <mat-option *ngFor="let test of tests" value="{{test.value}}">
+              {{test.text}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td colspan="2" class="content-center">
+        <button type="submit" mat-raised-button color="accent" [disabled]="addPatientForm.pristine">Submit</button>
+        <!--<button mat-raised-button color="accent" [disabled]="addPatientForm.pristine">Clear</button>    -->
+
+      </td>
+    </tr>
+  </table>
+</form>
+</div>

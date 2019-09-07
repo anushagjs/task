@@ -1,0 +1,48 @@
+<div>
+    <h1>Patient Details</h1>
+</div>
+<table>
+    <tr class="header-row">
+
+        <ng-container *ngFor="let col of getPatientDet | keyvalue">
+            <th class="header-cell" align="center">
+                <span class="header-cell-text">{{ col.key | uppercase}}
+
+                </span>
+
+            </th>
+        </ng-container>
+    </tr>
+    <tr class="table-row">
+        <ng-container *ngFor="let det of getPatientDet | keyvalue">
+            <td class="td-styles"> {{det.value}}</td>
+
+        </ng-container>
+    </tr>
+</table>
+
+<div>
+    <h2>Test Status</h2>
+</div>
+<table>
+    <tr class="header-row">
+        <ng-container *ngFor="let det of testStatusDet |keyvalue">
+
+            <th class="header-cell" align="center">
+                <span class="header-cell-text">{{ det.key }} </span>
+
+            </th>
+
+        </ng-container>
+    </tr>
+
+    <tr class="table-row">
+        <ng-container *ngFor="let det of testStatusDet | keyvalue">
+            <td class="td-styles"> {{ det.value}}</td>
+        </ng-container>
+    </tr>
+
+
+
+</table>
+<button mat-button color="primary" routerLink="/dashboard">Back to Dashboard</button>

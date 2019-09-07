@@ -1,0 +1,23 @@
+<h1>Dashboard</h1>
+<button mat-button color="primary" routerLink="/addPatient">Add Patient Record</button>
+<table>
+  <tr class="header-row">
+    <ng-container *ngFor="let col of displayedColumns">
+      <th class="header-cell" align="center">
+        <span class="header-cell-text">{{ col }}
+
+        </span>
+
+      </th>
+    </ng-container>
+  </tr>
+  <tr class="table-row" *ngFor="let col1 of dataSource" (click)="getPatientDetails(col1)">
+
+    <td class="td-styles"> {{col1.name}}</td>
+    <td class="td-styles"> {{col1.contactNo}}</td>
+    <td class="td-styles"> {{col1.testsPerfomed}}</td>
+
+
+  </tr>
+
+</table>
